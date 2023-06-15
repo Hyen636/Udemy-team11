@@ -1,0 +1,112 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  color: white;
+}
+
+body {
+  width: 1000px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  margin: auto;
+}
+
+header {
+  text-align: center;
+  background-color: #95bad0;
+  padding: 20px;
+  height: 130px;
+}
+
+main {
+  background-color: #f6e5e5;
+}
+
+.circle {
+  width: 230px;
+  height: 230px;
+  border: 3px dashed #f0c9bf;
+  border-radius: 150px;
+  display: inline-block;
+  margin: 40px 20px 40px 20px;
+}
+.photo {
+  width: 220px;
+  height: 220px;
+  background-image: url("../img/hyen.jpeg");
+  background-size: cover;
+  border-radius: 150px;
+  display: inline-block;
+  margin: 5px 0px 0px 0px;
+}
+
+.profile i {
+  display: inline-block;
+  margin: 7px 7px 7px 95px;
+}
+
+.profile {
+  text-align: left;
+  display: inline-block;
+  width: 350px;
+  background-color: #f0c9bf;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  margin-top: 150px;
+}
+
+.about {
+  text-align: center;
+  margin-bottom: -5px;
+}
+
+.profile span {
+  margin-bottom: 20px;
+}
+
+.name {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.profile2 {
+  text-align: left;
+  display: inline-block;
+  width: 350px;
+  border: 1px solid #f0c9bf;
+  border-radius: 15px;
+  padding: 30px 20px 20px 20px;
+  margin-bottom: 40px;
+}
+
+.profile2 span {
+  display: block;
+  margin-bottom: 10px;
+}
+.title {
+  display: inline-block;
+  font-weight: bold;
+  margin-left: 70px;
+}
+
+.content {
+  display: inline-block;
+  margin-left: 20px;
+}
+footer i {
+  margin: 10px;
+}
+footer {
+  background-color: #95bad0;
+  padding: 30px;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    width: 500px;
+  }
+}
