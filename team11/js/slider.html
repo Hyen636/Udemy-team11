@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slider</title>
+    <style>
+      .hidden {
+        display: none;
+      }
+
+      .slider2 {
+        width: 300px;
+        overflow: hidden;
+      }
+
+      .slider2__wrapper {
+        display: flex;
+        transition: all 1s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider">
+      <div class="slider__wrapper">
+        <img
+          src="./images/image_1.jpeg"
+          alt="image"
+          class="slider__wrapper__img"
+          width="300px"
+        />
+        <img
+          src="./images/image_2.jpeg"
+          alt="image"
+          class="slider__wrapper__img hidden"
+          width="300px"
+        />
+        <img
+          src="./images/image_3.jpeg"
+          alt="image"
+          class="slider__wrapper__img hidden"
+          width="300px"
+        />
+        <img
+          src="./images/image_4.jpeg"
+          alt="image"
+          class="slider__wrapper__img hidden"
+          width="300px"
+        />
+        <img
+          src="./images/image_5.jpeg"
+          alt="image"
+          class="slider__wrapper__img hidden"
+          width="300px"
+        />
+      </div>
+      <div class="slider__controller">
+        <button class="slider__controller__left">◀︎</button>
+        <button class="slider__controller__right">▶︎</button>
+      </div>
+    </div>
+    <div class="slider2">
+      <div class="slider2__wrapper">
+        <img
+          src="./images/image_1.jpeg"
+          alt="image"
+          class="slider__wrapper__img"
+          width="300px"
+        />
+        <img
+          src="./images/image_2.jpeg"
+          alt="image"
+          class="slider__wrapper__img"
+          width="300px"
+        />
+        <img
+          src="./images/image_3.jpeg"
+          alt="image"
+          class="slider__wrapper__img"
+          width="300px"
+        />
+        <img
+          src="./images/image_4.jpeg"
+          alt="image"
+          class="slider__wrapper__img"
+          width="300px"
+        />
+        <img
+          src="./images/image_5.jpeg"
+          alt="image"
+          class="slider__wrapper__img"
+          width="300px"
+        />
+      </div>
+      <div class="slider2__controller">
+        <button class="slider2__controller__left">◀︎</button>
+        <button class="slider2__controller__right">▶︎</button>
+      </div>
+    </div>
+    <script>
+      const slider = document.querySelector(".slider");
+      const sliderWrapper = slider.querySelector(".slider__wrapper");
+      const sliderController = slider.querySelector(".slider__controller");
+      const sliderImgs = sliderWrapper.querySelectorAll("img");
+      const leftBtn = sliderController.querySelector(
+        ".slider__controller__left"
+      );
+      const rightBtn = sliderController.querySelector(
+        ".slider__controller__right"
+      );
+
+      let order = 0;
+
+      const onLeft = () => {
+        if (order === 0) {
+          order = sliderImgs.length - 1;
+          sliderImgs[0].classList.add("hidden");
+        } else {
+          order = order - 1;
+          sliderImgs[order + 1].classList.add("hidden");
+        }
+        sliderImgs[order].classList.remove("hidden");
+      };
+
+      const onRight = () => {
+        if (order === sliderImgs.length - 1) {
+          order = 0;
+          sliderImgs[sliderImgs.length - 1].classList.add("hidden");
+        } else {
+          order = order + 1;
+          sliderImgs[order - 1].classList.add("hidden");
+        }
+        sliderImgs[order].classList.remove("hidden");
+      };
+
+      leftBtn.addEventListener("click", onLeft);
+      rightBtn.addEventListener("click", onRight);
+
+      const slider2 = document.querySelector(".slider2");
+      const sliderWrapper2 = slider2.querySelector(".slider2__wrapper");
+      const sliderController2 = slider2.querySelector(".slider2__controller");
+      const sliderImgs2 = sliderWrapper2.querySelectorAll("img");
+      const leftBtn2 = sliderController2.querySelector(
+        ".slider2__controller__left"
+      );
+      const rightBtn2 = sliderController2.querySelector(
+        ".slider2__controller__right"
+      );
+
+      let order2 = 0;
+
+      const onLeft2 = () => {
+        if (order2 === 0) {
+          order2 = sliderImgs2.length - 1;
+          sliderWrapper2.style.transform = `translateX(-${
+            100 * (sliderImgs2.length - 1)
+          }%)`;
+        } else {
+          order2 = order2 - 1;
+          sliderWrapper2.style.transform = `translateX(-${100 * order2}%)`;
+        }
+      };
+
+      const onRight2 = () => {
+        console.log(1);
+        if (order2 === sliderImgs2.length - 1) {
+          order2 = 0;
+          sliderWrapper2.style.transform = `translateX(0px)`;
+        } else {
+          order2 = order2 + 1;
+          sliderWrapper2.style.transform = `translateX(-${100 * order2}%)`;
+        }
+      };
+
+      leftBtn2.addEventListener("click", onLeft2);
+      rightBtn2.addEventListener("click", onRight2);
+    </script>
+  </body>
+</html>
