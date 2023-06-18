@@ -90,6 +90,10 @@
   footer {
     padding-left: 145px;
   }
+
+  .slider__wrapper__controller__container {
+    gap: 700px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -133,6 +137,10 @@
 
   footer {
     padding-left: 44px;
+  }
+
+  .slider__wrapper__controller__container {
+    gap: 500px;
   }
 }
 
@@ -220,5 +228,13 @@
   .last-bnn h2 {
     font-size: 36px;
     line-height: 43px;
+  }
+
+  .slider__wrapper {
+    overflow: scroll;
+  }
+
+  .slider__wrapper:hover .slider__wrapper__controller {
+    display: none;
   }
 }

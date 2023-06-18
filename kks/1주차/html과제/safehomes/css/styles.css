@@ -479,3 +479,68 @@ footer .footer__info {
   line-height: 24px;
   color: var(--gray);
 }
+
+.slider__wrapper {
+  position: relative;
+}
+
+.slider__wrapper:hover .slider__wrapper__controller {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 160px;
+}
+
+main .review__container {
+  display: flex;
+  gap: 45px;
+  transition: all 1s ease-in-out;
+}
+
+.slider__wrapper__controller {
+  width: 100%;
+  display: none;
+  top: 200px;
+  position: absolute;
+}
+
+.slider__wrapper__controller__container {
+  display: flex;
+  gap: 900px;
+}
+
+.slider__wrapper__controller button {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  font-size: 24px;
+  text-align: center;
+  line-height: 32px;
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  background-color: var(--green);
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px 1px;
+}
+
+.slider__wrapper__controller button:hover {
+  background-color: #0d5140;
+}
+
+.slider__wrapper__controller__pagination {
+  display: flex;
+  gap: 5px;
+}
+
+.pagination {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.checked {
+  background-color: rgba(0, 0, 0, 0.6);
+}
