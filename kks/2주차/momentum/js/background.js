@@ -48,7 +48,7 @@ const images = [
 ];
 
 const getRandom = () => {
-  const randomNumber = Math.floor(Math.random() * 10);
+  const randomNumber = Math.floor(Math.random() * images.length);
   background.style.backgroundImage = `url("./images/${images[randomNumber].image}")`;
   quote.innerText = images[randomNumber].quote;
 };
