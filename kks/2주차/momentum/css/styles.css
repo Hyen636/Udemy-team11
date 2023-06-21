@@ -18,6 +18,25 @@ body {
   color: #fff;
 }
 
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 30px;
+}
+
+.weather div {
+  display: flex;
+  gap: 10px;
+}
+
+.weather div span {
+  font-size: 15px;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
 main {
   display: flex;
   flex-direction: column;
