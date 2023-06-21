@@ -1,0 +1,55 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+main .clock {
+  text-align: center;
+  margin-top: 200px;
+  padding: 50px;
+  font-size: 80px;
+  color: white;
+}
+
+img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: -1;
+  opacity: 80%;
+}
+
+.login {
+  text-align: center;
+}
+
+.login input {
+  border: none;
+  border-bottom: 2px solid white;
+  background-color: transparent;
+  color: white;
+  font-size: 50px;
+  text-align: center;
+  outline: none;
+}
+
+input::placeholder {
+  color: white;
+  text-align: center;
+}
+
+.login input:last-child {
+  border: none;
+}
+
+.login .greeting {
+  color: white;
+  font-size: 40px;
+}
+
+.hidden {
+  display: none;
+}
