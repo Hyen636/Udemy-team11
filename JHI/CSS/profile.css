@@ -34,7 +34,7 @@ main {
 .photo {
   width: 220px;
   height: 220px;
-  background-image: url("../img/hyen.jpeg");
+  background-image: url("../IMG/hyen.jpeg");
   background-size: cover;
   border-radius: 150px;
   display: inline-block;
