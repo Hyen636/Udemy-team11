@@ -5,6 +5,18 @@
   box-sizing: border-box;
 }
 
+.hidden {
+  display: none;
+}
+
+.hidden--visi {
+  visibility: hidden;
+}
+
+.check {
+  text-decoration: line-through;
+}
+
 body {
   width: 100vw;
   height: 100vh;
@@ -23,7 +35,7 @@ header {
   position: fixed;
   top: 0;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 10px 30px;
 }
 
@@ -38,14 +50,11 @@ header {
 }
 
 main {
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
-}
-
-.hidden {
-  visibility: hidden;
 }
 
 .clock__title {
@@ -64,15 +73,21 @@ main {
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 
+.greeting__form,
+.todo {
+  height: 300px;
+}
+
 .greeting__form {
-  margin-top: 30px;
+  margin-top: 20px;
   text-align: center;
 }
 
-.greeting__form__input {
+.greeting__form__input,
+.todo__form__input {
   width: 350px;
-  padding: 10px 20px;
-  font-size: 32px;
+  padding: 10px 10px;
+  font-size: 28px;
   color: #fff;
   border: none;
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
@@ -80,8 +95,66 @@ main {
   background-color: inherit;
 }
 
-.greeting__form__input:focus {
+.change-name-btn {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.change-name-btn:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+input:focus {
   outline: none;
+}
+
+.todo__form {
+  text-align: center;
+}
+
+.todo__form__input::placeholder {
+  color: #fff;
+}
+
+.todo__list {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.todo__list li {
+  width: 350px;
+  display: grid;
+  grid-template-columns: 6fr 1fr 1fr;
+  align-items: center;
+}
+
+.todo__list button {
+  width: 40px;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.todo__list button:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.todo__list button:nth-child(2) {
+  font-size: 24px;
+}
+
+.todo__list .check--btn {
+  color: #fff;
+  background-color: rgba(39, 236, 39, 0.5);
+}
+
+.todo__list .check--btn:hover {
+  background-color: rgba(39, 236, 39, 0.7);
 }
 
 footer {
