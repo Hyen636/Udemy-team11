@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../CSS/momentum.css" />
   </head>
   <body>
-    <header></header>
+    <header><div id="weather"></div></header>
     <main>
       <section class="clock">
         <h1></h1>
@@ -26,6 +26,18 @@
           <input type="submit" value="" />
         </form>
         <h1 class="greeting" class="hidden"></h1>
+      </section>
+
+      <section class="todo">
+        <form id="todo-form">
+          <input
+            type="text"
+            placeholder="Add Todo"
+            onfocus="this.placeholder=''"
+            onblur="this.placeholder='Add Todo'"
+          />
+        </form>
+        <ul id="todo-list"></ul>
       </section>
     </main>
     <script src="../JS/momentum.js"></script>
