@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
+    <header>
+      <button class="change-name-btn hidden--visi">Change Name</button>
+      <div class="weather"></div>
+    </header>
     <main>
       <section class="clock">
         <h1 class="clock__title"></h1>
@@ -17,12 +21,25 @@
           <input type="text" class="greeting__form__input" />
         </form>
       </section>
+      <section class="todo hidden">
+        <form class="todo__form">
+          <input
+            type="text"
+            class="todo__form__input"
+            placeholder="Write a to do"
+          />
+        </form>
+        <ul class="todo__list"></ul>
+      </section>
     </main>
+
     <footer>
       <p class="quote"></p>
     </footer>
     <script src="./js/clock.js"></script>
     <script src="./js/background.js"></script>
     <script src="./js/greeting.js"></script>
+    <script src="./js/weather.js"></script>
+    <script src="./js/todo.js"></script>
   </body>
 </html>

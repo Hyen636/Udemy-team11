@@ -49,7 +49,7 @@ const images = [
 
 const getRandom = () => {
   const randomNumber = Math.floor(Math.random() * images.length);
-  background.style.backgroundImage = `url("./images/${images[randomNumber].image}")`;
+  background.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url("./images/${images[randomNumber].image}")`;
   quote.innerText = images[randomNumber].quote;
 };
 
