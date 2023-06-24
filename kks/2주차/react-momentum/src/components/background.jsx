@@ -1,4 +1,8 @@
 import React from "react";
+import Footer from "components/footer";
+import Main from "components/main";
+import { useState } from "react";
+import { useEffect } from "react";
 import image_1 from "images/image_1.jpg";
 import image_2 from "images/image_2.jpg";
 import image_3 from "images/image_3.jpg";
@@ -9,9 +13,6 @@ import image_7 from "images/image_7.jpg";
 import image_8 from "images/image_8.jpg";
 import image_9 from "images/image_9.jpg";
 import image_10 from "images/image_10.jpg";
-import { useState } from "react";
-import { useEffect } from "react";
-import Footer from "components/footer";
 
 const Background = () => {
   const images = [
@@ -72,13 +73,20 @@ const Background = () => {
   return (
     <div
       style={{
+        display: "flex",
+        justifyContent: "center",
+        justifyContent: "center",
+        alignItems: "center",
         backgroundImage: `linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(${images[randomNumber].image})`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         width: "100vw",
         height: "100vh",
+        color: "#fff",
+        fontFamily: "Noto Sans KR",
       }}
     >
+      <Main />
       <Footer quote={images[randomNumber].quote} />
     </div>
   );
