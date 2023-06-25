@@ -1,0 +1,94 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  text-align: right;
+  color: white;
+  padding: 30px 30px;
+  height: 10px;
+}
+
+main .clock {
+  text-align: center;
+  margin-top: 130px;
+  padding: 50px;
+  font-size: 90px;
+  color: white;
+}
+
+img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: -1;
+  opacity: 80%;
+}
+
+.login {
+  text-align: center;
+}
+
+.login input {
+  border: none;
+  border-bottom: 2px solid white;
+  background-color: transparent;
+  color: white;
+  font-size: 50px;
+  text-align: center;
+  outline: none;
+}
+
+input::placeholder {
+  color: white;
+  text-align: center;
+}
+
+.login input:last-child {
+  border: none;
+}
+
+.login .greeting {
+  color: white;
+  font-size: 40px;
+}
+
+.todo {
+  text-align: center;
+  margin: 70px;
+}
+
+.todo input {
+  border: none;
+  background-color: transparent;
+  color: white;
+  text-align: center;
+  outline: none;
+  font-size: 18px;
+  border-bottom: 2px solid white;
+}
+
+.todo ul {
+  margin: 10px;
+  color: white;
+}
+
+.todo li {
+  list-style-type: none;
+  margin: 5px;
+  font-size: 18px;
+}
+
+.todo button {
+  border: none;
+  background-color: transparent;
+  margin-left: 10px;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+}
