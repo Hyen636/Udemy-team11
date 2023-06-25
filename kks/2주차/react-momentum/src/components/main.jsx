@@ -4,7 +4,7 @@ import Greeting from "./greeting";
 
 const Main = () => {
   return (
-    <div>
+    <div style={{ display: "flex", flexDirection: "column", gap: 15 }}>
       <Clock />
       <Greeting />
     </div>
