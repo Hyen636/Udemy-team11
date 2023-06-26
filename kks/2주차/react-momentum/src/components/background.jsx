@@ -1,6 +1,7 @@
 import React from "react";
 import Footer from "components/footer";
 import Main from "components/main";
+import Weather from "components/weather";
 import { useState } from "react";
 import { useEffect } from "react";
 import image_1 from "images/image_1.jpg";
@@ -86,6 +87,7 @@ const Background = () => {
         fontFamily: "Noto Sans KR",
       }}
     >
+      <Weather />
       <Main />
       <Footer quote={images[randomNumber].quote} />
     </div>
