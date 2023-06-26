@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 20px;
+}
+
+.todo__form__input {
+  width: 200px;
+  height: 30px;
+  padding-left: 10px;
+}
+
+.todo__form__submit,
+.todo__list button {
+  width: 50px;
+  height: 30px;
+  border: none;
+  color: #fff;
+}
+
+.todo__form__submit {
+  background-color: #009688;
+}
+
+.todo__list {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.todo__list li {
+  width: 500px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo__list button {
+  background-color: red;
+}

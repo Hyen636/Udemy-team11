@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock</title>
+  </head>
+  <body>
+    <h1 id="clock"></h1>
+    <script>
+      const setTime = () => {
+        const clock = document.querySelector("#clock");
+        const hours = new Date().getHours();
+        const minutes = new Date().getMinutes();
+        const seconds = new Date().getSeconds();
+        const time = `${hours < 10 ? `0${hours}` : hours}:${
+          minutes < 10 ? `0${minutes}` : minutes
+        }:${seconds < 10 ? `0${seconds}` : seconds}`;
+        clock.innerHTML = time;
+        if (seconds > 50) {
+          clock.style.color = `rgb(${255 * ((seconds - 50) / 9)},0,0)`;
+        } else {
+          clock.style.color = "black";
+        }
+      };
+      setInterval(() => {
+        setTime();
+      }, 1000);
+      setTime();
+    </script>
+  </body>
+</html>

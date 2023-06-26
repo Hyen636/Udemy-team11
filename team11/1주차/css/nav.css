@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 200vh;
+}
+
+nav {
+  position: sticky;
+  top: 0px;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  align-items: center;
+  margin: 20px 50px;
+  padding: 30px 10px;
+  border: 2px solid;
+}
+
+.logo {
+  justify-self: center;
+}
+
+img {
+  width: 100px;
+}
+
+ul {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  list-style: none;
+}
+
+li {
+  justify-self: center;
+  font-weight: bold;
+}

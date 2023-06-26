@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Momentum</title>
+    <link rel="stylesheet" href="../CSS/momentum.css" />
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <section class="clock">
+        <h1></h1>
+      </section>
+      <section class="login">
+        <form class="login-form" class="hidden">
+          <input
+            type="text"
+            required
+            maxlength="15"
+            placeholder="What is your name?"
+            onfocus="this.placeholder=''"
+            onblur="this.placeholder='What is your name?'"
+          />
+          <input type="submit" value="" />
+        </form>
+        <h1 class="greeting" class="hidden"></h1>
+      </section>
+    </main>
+    <script src="../JS/momentum.js"></script>
+  </body>
+</html>
