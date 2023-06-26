@@ -1,0 +1,27 @@
+ul {
+  list-style: none;
+}
+
+button {
+  padding: 5px 10px;
+  border: none;
+  color: #fff;
+  background-color: #009688;
+}
+
+.food__list {
+  width: 500px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  gap: 20px;
+}
+
+.food__list__box {
+  width: 200px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}

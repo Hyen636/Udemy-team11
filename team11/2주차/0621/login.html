@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const root = document.getElementById("root");
+      const App = () => {
+        const [id, setId] = React.useState("");
+        const [password, setPassword] = React.useState("");
+        const onIdChange = (event) => {
+          setId(event.target.value);
+        };
+        const onPasswordChange = (evnet) => {
+          setPassword(event.target.value);
+        };
+        const onClick = () => {
+          console.log(id, password);
+        };
+        return (
+          <>
+            <input
+              type="text"
+              placeholder="id"
+              value={id}
+              onChange={onIdChange}
+            />
+            <input
+              type="password"
+              placeholder="password"
+              value={password}
+              onChange={onPasswordChange}
+            />
+            <input type="submit" value="Login" onClick={onClick} />
+          </>
+        );
+      };
+      ReactDOM.render(<App />, root);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>계산기</title>
+    <style>
+      .cal {
+        width: 200px;
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+
+      .btn,
+      .result-box {
+        text-align: center;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+
+      .btn:hover {
+        background-color: rgba(0, 0, 0, 0.08);
+      }
+
+      .result-box,
+      .clear-btn {
+        grid-column: 1/4;
+      }
+      .result-box {
+        padding: 0px 10px;
+        text-align: start;
+        background-color: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cal">
+      <div class="number-btn btn">1</div>
+      <div class="number-btn btn">2</div>
+      <div class="number-btn btn">3</div>
+      <div class="number-btn btn">4</div>
+      <div class="number-btn btn">5</div>
+      <div class="number-btn btn">6</div>
+      <div class="number-btn btn">7</div>
+      <div class="number-btn btn">8</div>
+      <div class="number-btn btn">9</div>
+      <div class="number-btn btn">0</div>
+      <div class="element-btn btn">+</div>
+      <div class="element-btn btn">-</div>
+      <div class="element-btn btn">*</div>
+      <div class="element-btn btn">/</div>
+      <div class="result-btn btn">=</div>
+      <div class="result-box"></div>
+      <div class="clear-btn btn">clear</div>
+    </div>
+    <script>
+      const cals = document.querySelectorAll(".number-btn");
+      const resultBox = document.querySelector(".result-box");
+      const elementBtns = document.querySelectorAll(".element-btn");
+      const resultBtn = document.querySelector(".result-btn");
+      const clearBtn = document.querySelector(".clear-btn");
+
+      let number = "";
+      let element;
+      let firstNumber;
+      let secondNumber;
+      let result = "";
+
+      const write = (event) => {
+        const {
+          target: { innerHTML },
+        } = event;
+        number = number + innerHTML;
+        resultBox.innerHTML = number;
+      };
+
+      const setElement = (event) => {
+        const {
+          target: { innerHTML },
+        } = event;
+        firstNumber = number;
+        element = innerHTML;
+        number = "";
+      };
+
+      const getResult = () => {
+        secondNumber = number;
+        if (element === "+") {
+          result = +firstNumber + +secondNumber;
+        } else if (element === "-") {
+          result = +firstNumber - +secondNumber;
+        } else if (element === "*") {
+          result = +firstNumber * +secondNumber;
+        } else if (element === "/") {
+          result = +firstNumber / +secondNumber;
+        }
+        resultBox.innerHTML = result;
+        number = "";
+        firstNumber = "";
+        secondNumber = "";
+        result = "";
+      };
+
+      const setClear = () => {
+        number = "";
+        firstNumber = "";
+        secondNumber = "";
+        element = "";
+        resultBox.innerHTML = "";
+      };
+
+      cals.forEach((cal) => cal.addEventListener("click", write));
+      elementBtns.forEach((btn) => btn.addEventListener("click", setElement));
+      resultBtn.addEventListener("click", getResult);
+      clearBtn.addEventListener("click", setClear);
+    </script>
+  </body>
+</html>
