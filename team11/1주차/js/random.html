@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random</title>
+  </head>
+  <body>
+    <img src="./" alt="image" id="image-box" width="300px" />
+    <div id="image-content"></div>
+    <script>
+      const images = [
+        { name: "image_1", content: "덮밥 하트" },
+        { name: "image_2", content: "잠자는 덮밥" },
+        { name: "image_3", content: "막 일어난 덮밥" },
+        { name: "image_4", content: "어린 덮밥" },
+        { name: "image_5", content: "고등어" },
+      ];
+      const imgBox = document.querySelector("#image-box");
+      const imgContent = document.querySelector("#image-content");
+      const randomImg = () => {
+        const randomNumber = Math.floor(Math.random() * images.length);
+        imgBox.src = `./images/${images[randomNumber].name}.jpeg`;
+        imgContent.innerHTML = images[randomNumber].content;
+      };
+      imgBox.addEventListener("click", randomImg);
+      randomImg();
+    </script>
+  </body>
+</html>

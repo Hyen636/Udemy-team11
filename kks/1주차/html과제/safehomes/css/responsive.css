@@ -1,0 +1,240 @@
+@media screen and (max-width: 1024px) {
+  .main__header__list li:first-child,
+  .main__bnn a,
+  .card .section-link {
+    display: none;
+  }
+
+  .main__bnn {
+    margin-bottom: 100px;
+  }
+
+  .main__bnn h2 {
+    font-size: 48px;
+    line-height: 57px;
+  }
+
+  .introduce h3 {
+    font-size: 32px;
+  }
+
+  .introduce ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card,
+  .card--second,
+  .mini-card {
+    margin-bottom: 150px;
+  }
+
+  .card__container {
+    margin-top: 41px;
+  }
+
+  .mini-card h3,
+  .price h3,
+  .review h3 {
+    font-size: 36px;
+  }
+
+  .mini-card .section-link {
+    margin-top: 39px;
+  }
+
+  .phone__section,
+  .price {
+    margin-bottom: 160px;
+  }
+
+  .phone__section .phone__section__container {
+    gap: 143px;
+  }
+
+  .phone__section .phone__section__container__box {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .iphone__wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .iphone__column {
+    order: -1;
+    align-items: center;
+  }
+
+  .iphone__column h4,
+  .iphone__column p {
+    text-align: center;
+  }
+
+  .iphone__column .iphone__column__list {
+    display: none;
+  }
+
+  .review {
+    margin-bottom: 112px;
+  }
+
+  .review ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .phone__section .phone__section__container {
+    gap: 127px;
+  }
+
+  footer {
+    padding-left: 145px;
+  }
+
+  .slider__wrapper__controller__container {
+    gap: 700px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main__header {
+    padding: 0px 49px;
+  }
+
+  .main__header .main__header__logo {
+    justify-self: flex-start;
+  }
+
+  .main__header .main__header__list {
+    justify-self: flex-end;
+  }
+
+  .main__bnn,
+  .review {
+    margin-bottom: 90px;
+  }
+
+  .main__bnn h2 {
+    font-size: 36px;
+    line-height: 43px;
+  }
+
+  .card,
+  .card--second,
+  .mini-card,
+  .price {
+    margin-bottom: 132px;
+  }
+
+  .last-bnn h2 {
+    font-size: 48px;
+    line-height: 57px;
+  }
+
+  .last-bnn .last-bnn__btn {
+    margin-top: 42px;
+  }
+
+  footer {
+    padding-left: 44px;
+  }
+
+  .slider__wrapper__controller__container {
+    gap: 500px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .main__header {
+    padding: 0px 24px;
+  }
+
+  .main__bnn {
+    margin-bottom: 64px;
+  }
+
+  .main__bnn h2 {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28px;
+  }
+
+  .card,
+  .card--second,
+  .mini-card {
+    margin-bottom: 84px;
+  }
+
+  .introduce h3 {
+    font-size: 21px;
+  }
+
+  .introduce ul {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .introduce ul {
+    gap: 32px;
+  }
+
+  .card--second h3,
+  .price h3,
+  .review h3 {
+    font-size: 24px;
+  }
+
+  .iphone__column h4 {
+    font-size: 36px;
+    line-height: 43px;
+  }
+
+  .iphone__column p {
+    width: 339px;
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .price,
+  .review {
+    margin-bottom: 53px;
+  }
+
+  .review ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .review .section-link {
+    display: none;
+  }
+
+  .review__container .review__container__box {
+    width: 394px;
+    padding: 33px;
+  }
+
+  .review__container__box header {
+    margin-bottom: 25px;
+  }
+
+  .review__container__box p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+  }
+
+  .last-bnn h2 {
+    font-size: 36px;
+    line-height: 43px;
+  }
+
+  .slider__wrapper {
+    overflow: scroll;
+  }
+
+  .slider__wrapper:hover .slider__wrapper__controller {
+    display: none;
+  }
+}
