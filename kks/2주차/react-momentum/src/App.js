@@ -1,5 +1,13 @@
+import Background from "components/background";
+import { Reset } from "styled-reset";
+
 function App() {
-  return <div className="App"></div>;
+  return (
+    <>
+      <Reset />
+      <Background />
+    </>
+  );
 }
 
 export default App;
