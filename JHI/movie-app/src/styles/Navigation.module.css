@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  background-color: black;
+  padding: 30px 140px 30px 140px;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: white;
+}
+
+.navigation .searh {
+  margin-left: 100px;
+}
+
+.navigation input {
+  border-radius: 15px;
+  border: 2px solid white;
+  background: transparent;
+  padding: 4px 15px 4px 15px;
+  color: white;
+}
+
+input::placeholder {
+  color: white;
+}
