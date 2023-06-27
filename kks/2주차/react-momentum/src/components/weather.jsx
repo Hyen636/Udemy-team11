@@ -33,7 +33,7 @@ const Weather = () => {
 
   return (
     <>
-      <div>
+      <div style={{ padding: 10, paddingRight: 20 }}>
         {data
           ? `${data.name} ${data.weather[0].main} ${data.main.temp.toFixed(
               1
