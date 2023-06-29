@@ -7,7 +7,7 @@ import React from "react";
 import Footer from "components/Footer";
 
 const Search = () => {
-  const { movieData, loading, refetcher } = useMoive({ url: null });
+  const { movieData, loading, refetcher } = useMoive({});
   return (
     <>
       <Header search={true} refetcher={refetcher} />

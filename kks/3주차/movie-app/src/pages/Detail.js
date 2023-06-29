@@ -9,23 +9,14 @@ import Actor from "components/Actor";
 const Detail = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const { movieData, loading, refetcher } = useMoive({
+  const { movieData, loading } = useMoive({
     url: `movie_details.json?movie_id=${id}&with_cast=true`,
     type: "detail",
   });
 
-  const {
-    movieData: relatedMovie,
-    loading: relatedLoding,
-    refetcher: relatedRefetcher,
-  } = useMoive({
+  const { movieData: relatedMovie, loading: relatedLoding } = useMoive({
     url: `movie_suggestions.json?movie_id=${id}`,
   });
-
-  useEffect(() => {
-    refetcher(id);
-    relatedRefetcher(id);
-  }, [id]);
 
   return (
     <>

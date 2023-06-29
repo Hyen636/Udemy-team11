@@ -7,7 +7,6 @@ const useMoive = ({ url = null, type = "movies" }) => {
 
   const getMovie = async () => {
     const data = await (await fetch(BASE_URL + url)).json();
-    console.log(data);
     if (type === "movies") {
       setMovieData(data.data.movies);
     } else if (type === "detail") {
@@ -16,15 +15,10 @@ const useMoive = ({ url = null, type = "movies" }) => {
   };
 
   const refetcher = async (refetch) => {
-    if (url && loading) return;
-    if (url) {
-      getMovie();
-    } else {
-      const data = await (
-        await fetch(BASE_URL + `list_movies.json?query_term=${refetch}`)
-      ).json();
-      setMovieData(data.data.movies);
-    }
+    const data = await (
+      await fetch(BASE_URL + `list_movies.json?query_term=${refetch}`)
+    ).json();
+    setMovieData(data.data.movies);
   };
 
   useEffect(() => {
