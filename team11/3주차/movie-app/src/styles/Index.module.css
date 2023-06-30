@@ -1,0 +1,17 @@
+.movie-d-page {
+  margin: auto;
+  text-align: left;
+  font-family: sans-serif;
+  font-weight: 600;
+}
+
+.movie-d-container {
+  background: linear-gradient(
+    90deg,
+    rgba(8, 6, 33, 1) 0%,
+    rgba(56, 59, 32, 1) 59%,
+    rgba(63, 78, 81, 1) 100%
+  );
+  display: flex;
+  justify-content: center;
+}
