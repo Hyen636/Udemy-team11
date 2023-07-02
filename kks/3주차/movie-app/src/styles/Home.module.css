@@ -1,6 +1,30 @@
-.movieContaiber {
+.home {
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
+  padding: 50px 0px 50px 0px;
+}
+
+.search {
+  min-height: 100vh;
   padding: 100px 0px 50px 0px;
+}
+
+.pageForm {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  padding: 50px 50px 30px 0px;
+}
+
+.pageForm input {
+  outline: none;
+  width: 40px;
+}
+
+.movieContainer {
+  display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 30px;
@@ -19,4 +43,33 @@
   font-weight: bold;
   padding-left: 50px;
   margin-bottom: 15px;
+}
+
+.pageList {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-weight: lighter;
+  margin-top: 50px;
+}
+
+.pageList button,
+.pageList ul li {
+  cursor: pointer;
+}
+
+.pageList button {
+  color: #fff;
+  border: none;
+  background-color: inherit;
+}
+
+.pageList button:hover,
+.pageList ul li:hover {
+  color: #a1a1a1;
+}
+
+.pageList ul {
+  display: flex;
+  gap: 10px;
 }

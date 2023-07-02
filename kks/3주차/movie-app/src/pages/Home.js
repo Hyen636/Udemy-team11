@@ -40,18 +40,45 @@ const Home = () => {
         {loading ? (
           <Loader />
         ) : (
-          <div className={Styles.movieContaiber}>
-            {sliceData.map((movie) => (
-              <Movie
-                key={movie.id}
-                id={movie.id}
-                image={movie.medium_cover_image}
-                title={movie.title}
-                rating={movie.rating}
-                runtime={movie.runtime}
-                year={movie.year}
+          <div className={Styles.hone}>
+            <form onSubmit={onSubmit} className={Styles.pageForm}>
+              <label>Movies per page</label>
+              <input
+                type="number"
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
               />
-            ))}
+            </form>
+            <div className={Styles.movieContainer}>
+              {sliceData.map((movie) => (
+                <Movie
+                  key={movie.id}
+                  id={movie.id}
+                  image={movie.medium_cover_image}
+                  title={movie.title}
+                  rating={movie.rating}
+                  runtime={movie.runtime}
+                  year={movie.year}
+                />
+              ))}
+            </div>
+            <div className={Styles.pageList}>
+              <button onClick={prevPage}>◀︎</button>
+              <ul>
+                {Array(maxPage)
+                  .fill({})
+                  .map((_, index) => (
+                    <li
+                      key={index}
+                      onClick={() => movePage(index + 1)}
+                      style={{ fontWeight: page === +(index + 1) && "bold" }}
+                    >
+                      {index + 1}
+                    </li>
+                  ))}
+              </ul>
+              <button onClick={nextPage}>▶︎</button>
+            </div>
           </div>
         )}
         {/*         <div>
@@ -90,27 +117,6 @@ const Home = () => {
             </div>
           )}
         </div> */}
-        <form onSubmit={onSubmit}>
-          <input
-            type="number"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-          />
-        </form>
-        <div>
-          <div>page:{page}</div>
-          <button onClick={prevPage}>◀︎</button>
-          <ul>
-            {Array(maxPage)
-              .fill({})
-              .map((_, index) => (
-                <li key={index} onClick={() => movePage(index + 1)}>
-                  {index + 1}
-                </li>
-              ))}
-          </ul>
-          <button onClick={nextPage}>▶︎</button>
-        </div>
       </div>
       <Footer />
     </>

@@ -6,7 +6,6 @@ const useFetchMovies = (url) => {
   const [error, setError] = useState();
 
   const getMovies = async () => {
-    console.log("run");
     try {
       const response = await fetch(url);
       const data = await response.json();

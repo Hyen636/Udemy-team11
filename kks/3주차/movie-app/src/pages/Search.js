@@ -12,18 +12,20 @@ const Search = () => {
     <>
       <Header search={true} refetcher={refetcher} />
       {!loading && movieData ? (
-        <div className={Styles.movieContaiber}>
-          {movieData.map((movie) => (
-            <Movie
-              key={movie.id}
-              id={movie.id}
-              image={movie.medium_cover_image}
-              title={movie.title}
-              rating={movie.rating}
-              runtime={movie.runtime}
-              year={movie.year}
-            />
-          ))}
+        <div className={Styles.search}>
+          <div className={Styles.movieContainer}>
+            {movieData.map((movie) => (
+              <Movie
+                key={movie.id}
+                id={movie.id}
+                image={movie.medium_cover_image}
+                title={movie.title}
+                rating={movie.rating}
+                runtime={movie.runtime}
+                year={movie.year}
+              />
+            ))}
+          </div>
         </div>
       ) : (
         <Loader type="search" />

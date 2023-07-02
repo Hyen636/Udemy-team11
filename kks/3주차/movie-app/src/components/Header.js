@@ -40,7 +40,7 @@ const Header = ({ search = false, refetcher }) => {
         </nav>
       </div>
       {search && (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} className={Styles.searchForm}>
           <input
             type="text"
             value={keyword}
