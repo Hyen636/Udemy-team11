@@ -5,6 +5,7 @@ import Footer from "components/Footer";
 import Home from "pages/Home";
 import Detail from "pages/Detail";
 import Search from "pages/Search";
+import Chat from "components/chat";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="/search" element={<Search />} />
       </Routes>
+      <Chat />
       <Footer />
     </Router>
   );

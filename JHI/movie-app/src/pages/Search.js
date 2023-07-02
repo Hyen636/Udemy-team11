@@ -2,29 +2,15 @@ import Movie from "components/Movie";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import style from "styles/Home.module.css";
+import useSearchMovies from "hooks/useSearchMovies";
 
 const Search = () => {
   const location = useLocation();
-  console.log(location);
+  //console.log(location);
   const queryParams = new URLSearchParams(location.search);
   const query = queryParams.get("query");
   useEffect(() => console.log(query), [query]);
-
-  const [movies, setMovies] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const getSearchList = async () => {
-    const response = await fetch(
-      `https://yts.mx/api/v2/list_movies.json?query_term=${query}`
-    );
-    const json = await response.json();
-    console.log(json);
-    setMovies(json.data.movies);
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    getSearchList();
-  }, [query]);
+  const { loading, movies } = useSearchMovies(query);
 
   return (
     <div className={style.main}>
