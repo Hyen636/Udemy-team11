@@ -15,6 +15,7 @@ const useMoive = ({ url = null, type = "movies" }) => {
   };
 
   const refetcher = async (refetch) => {
+    setLoading(true);
     const data = await (
       await fetch(BASE_URL + `list_movies.json?query_term=${refetch}`)
     ).json();

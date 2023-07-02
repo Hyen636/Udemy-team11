@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-const useFetchMovies = (query) => {
+/**
+ * 사용자가 입력한 검색어로 영화를 검색하고, 검색 결과를 처리하는 커스텀 훅입니다.
+ * @param {string} query - query
+ * @returns {object} - { movies, loading, error } 영화 데이터, 로딩 상태, 에러 정보를 포함하는 객체를 반환합니다.
+ */
+
+const useSearchFetchMovies = (query) => {
   const [movies, setMovies] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
@@ -19,6 +25,7 @@ const useFetchMovies = (query) => {
 
   useEffect(() => {
     if (!query) return;
+    setLoading(true);
     getMovies();
   }, [query]);
 
@@ -29,4 +36,4 @@ const useFetchMovies = (query) => {
   return { movies, loading, error };
 };
 
-export default useFetchMovies;
+export default useSearchFetchMovies;
