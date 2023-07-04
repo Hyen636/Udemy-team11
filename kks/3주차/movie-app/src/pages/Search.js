@@ -11,7 +11,11 @@ const Search = () => {
   return (
     <>
       <Header search={true} />
-      {!isLoading ? (
+      {isLoading ? (
+        <Loader text="Search Movie" />
+      ) : !movies ? (
+        <Loader text="Dose not Exist" />
+      ) : (
         <div className={Styles.search}>
           <div className={Styles.movieContainer}>
             {movies.map((movie) => (
@@ -27,8 +31,6 @@ const Search = () => {
             ))}
           </div>
         </div>
-      ) : (
-        <Loader type="search" />
       )}
       <Footer />
     </>

@@ -17,6 +17,7 @@ const useSearchMovies = (query) => {
         `https://yts.mx/api/v2/list_movies.json?query_term=${query}`
       );
       const data = await response.json();
+
       setMovies(data);
     } catch (error) {
       setError(error);

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Loader = ({ type }) => {
+const Loader = ({ text = "Loading..." }) => {
   return (
     <div
       style={{
@@ -11,9 +11,7 @@ const Loader = ({ type }) => {
         alignItems: "center",
       }}
     >
-      <span style={{ fontSize: 26, fontWeight: "lighter" }}>
-        {type === "search" ? "Search Movie" : "Loading..."}
-      </span>
+      <span style={{ fontSize: 26, fontWeight: "lighter" }}>{text}</span>
     </div>
   );
 };

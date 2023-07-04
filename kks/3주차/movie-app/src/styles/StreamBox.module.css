@@ -1,0 +1,63 @@
+.streamBox {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+
+.streamContainer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  align-items: center;
+}
+
+iframe {
+  width: 100%;
+  max-width: 1200px;
+  aspect-ratio: 16/9;
+}
+
+.streamChat {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.streamChatTitle {
+  background-color: #111;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  text-align: center;
+  padding: 20px;
+  border-top-right-radius: 20px;
+}
+
+.streamChatContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  background-color: #000;
+}
+
+.streamChatForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.streamChatForm input {
+  outline: none;
+  padding: 10px;
+}
+
+.streamBoxChatSubmit {
+  border: none;
+  color: #fff;
+  background-color: tomato;
+}
+
+.streamBoxChatSubmit:hover {
+  background-color: rgb(212, 77, 54);
+}

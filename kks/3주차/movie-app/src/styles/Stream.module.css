@@ -1,0 +1,82 @@
+.stream {
+  min-height: 100vh;
+  padding: 100px 0px 50px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.streamContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.streamAdd {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.streamAddBox {
+  width: 500px;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #333;
+}
+
+.streamAddTitle {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.streamAddForm {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.streamAddForm input {
+  outline: none;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+}
+
+.streamAddSubmit,
+.streamAddCancel {
+  color: #fff;
+}
+.streamAddSubmit {
+  background-color: dodgerblue;
+}
+
+.streamAddCancel {
+  background-color: tomato;
+}
+
+.streamAddBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 70px;
+  height: 70px;
+  font-size: 32px;
+  text-align: center;
+  line-height: 70px;
+  background-color: tomato;
+  border-radius: 50%;
+  transition: all 0.05s ease-in-out;
+}
+
+.streamAddBtn:hover {
+  background-color: rgb(212, 77, 54);
+  scale: 1.1;
+}

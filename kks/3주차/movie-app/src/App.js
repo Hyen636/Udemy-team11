@@ -4,6 +4,8 @@ import Search from "pages/Search";
 import Styles from "styles/App.module.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Chat from "components/Chat";
+import Stream from "pages/Stream";
+import StreamBox from "pages/StreamBox";
 
 function App() {
   return (
@@ -11,9 +13,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<Search />} />
-        <Route path="detail/:id" element={<Detail />} />
+        <Route path="/stream" element={<Stream />} />
+        <Route path="/stream/:id" element={<StreamBox />} />
+        <Route path="/detail/:id" element={<Detail />} />
       </Routes>
-      <Chat />
+      {/* <Chat /> */}
     </Router>
   );
 }

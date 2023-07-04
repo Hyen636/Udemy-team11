@@ -1,0 +1,22 @@
+.StreamBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 400px;
+  height: 250px;
+  border-radius: 10px;
+  background-color: #333;
+  transition: all 0.15s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.StreamBlock:hover {
+  scale: 1.05;
+}
+
+.StreamBlockTitle {
+  font-size: 32px;
+  font-weight: bold;
+}
