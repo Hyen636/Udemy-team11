@@ -6,7 +6,6 @@ import usePagenation from "hooks/usePagenation";
 
 function Home() {
   const [limit, setLimit] = useState(50);
-
   const {
     currentPage,
     firstPage,
