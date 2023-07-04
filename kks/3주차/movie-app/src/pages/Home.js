@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import useMoive from "api/useMovie";
+import React, { useEffect, useState } from "react";
 import Header from "components/Header";
 import Movie from "components/Movie";
 import Styles from "styles/Home.module.css";
@@ -7,39 +6,45 @@ import Loader from "components/Loader";
 import Footer from "components/Footer";
 import useFetchMovies from "libs/useFetchMovies";
 import usePagination from "libs/usePagination";
+import { useDispatch, useSelector } from "react-redux";
+import { updateMovieStore } from "redux/movieSlice";
 
 const Home = () => {
-  /*   const { movieData, loading } = useMoive({
-    url: "list_movies.json?minimum_rating=8&limit=20&sort_by=like_count",
-  });
-  const { movieData: ratingData, loading: ratingLoading } = useMoive({
-    url: "list_movies.json?minimum_rating=8&limit=10&sort_by=rating",
-  });
-  const { movieData: yearData, loading: yearLoading } = useMoive({
-    url: "list_movies.json?minimum_rating=8&limit=10&sort_by=year",
-  }); */
-
+  const dispatch = useDispatch();
   const [pageCount, setPageCount] = useState(10);
-  const [inputValue, setInputValue] = useState(0);
+  const [inputValue, setInputValue] = useState(10);
   const onSubmit = (event) => {
     event.preventDefault();
     setPageCount(inputValue);
   };
 
-  const { movies, loading, error } = useFetchMovies(
+  const { movies, error } = useFetchMovies(
     "https://yts.mx/api/v2/list_movies.json?minimum_rating=8&limit=50&sort_by=like_count"
   );
 
+  const { movies: homeMovies, isLoading: homeIsLoading } = useSelector(
+    (state) => state.MovieStore
+  );
+
   const { page, nextPage, prevPage, movePage, maxPage, sliceData } =
-    usePagination(movies && movies.data.movies, pageCount);
+    usePagination(homeMovies, pageCount);
+
+  useEffect(() => {
+    if (!movies) return;
+    dispatch(
+      updateMovieStore({ movies: movies.data.movies, isLoading: false })
+    );
+  }, [movies, dispatch]);
+
+  useEffect(() => {
+    if (error) console.log(error);
+  }, [error]);
 
   return (
     <>
       <Header />
       <div className={Styles.home}>
-        {loading ? (
-          <Loader />
-        ) : (
+        {!homeIsLoading && sliceData ? (
           <div className={Styles.hone}>
             <form onSubmit={onSubmit} className={Styles.pageForm}>
               <label>Movies per page</label>
@@ -80,43 +85,9 @@ const Home = () => {
               <button onClick={nextPage}>▶︎</button>
             </div>
           </div>
+        ) : (
+          <Loader />
         )}
-        {/*         <div>
-          <div className={Styles.movieSectionTitle}>Rating</div>
-          {ratingLoading ? null : (
-            <div className={Styles.movieSection}>
-              {ratingData.map((movie) => (
-                <Movie
-                  key={movie.id}
-                  id={movie.id}
-                  image={movie.medium_cover_image}
-                  title={movie.title}
-                  rating={movie.rating}
-                  runtime={movie.runtime}
-                  year={movie.year}
-                />
-              ))}
-            </div>
-          )}
-        </div>
-        <div>
-          <div className={Styles.movieSectionTitle}>Latest</div>
-          {yearLoading ? null : (
-            <div className={Styles.movieSection}>
-              {yearData.map((movie) => (
-                <Movie
-                  key={movie.id}
-                  id={movie.id}
-                  image={movie.medium_cover_image}
-                  title={movie.title}
-                  rating={movie.rating}
-                  runtime={movie.runtime}
-                  year={movie.year}
-                />
-              ))}
-            </div>
-          )}
-        </div> */}
       </div>
       <Footer />
     </>

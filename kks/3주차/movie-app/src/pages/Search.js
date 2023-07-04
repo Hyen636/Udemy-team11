@@ -1,20 +1,20 @@
-import useMoive from "api/useMovie";
 import Header from "components/Header";
 import Loader from "components/Loader";
 import Movie from "components/Movie";
 import Styles from "styles/Home.module.css";
 import React from "react";
 import Footer from "components/Footer";
+import { useSelector } from "react-redux";
 
 const Search = () => {
-  const { movieData, loading, refetcher } = useMoive({});
+  const { movies, isLoading } = useSelector((state) => state.SearchStore);
   return (
     <>
-      <Header search={true} refetcher={refetcher} />
-      {!loading && movieData ? (
+      <Header search={true} />
+      {!isLoading ? (
         <div className={Styles.search}>
           <div className={Styles.movieContainer}>
-            {movieData.map((movie) => (
+            {movies.map((movie) => (
               <Movie
                 key={movie.id}
                 id={movie.id}

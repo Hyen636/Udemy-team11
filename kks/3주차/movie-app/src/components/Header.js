@@ -1,13 +1,18 @@
+import useSearchMovies from "libs/useSearchMovies";
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { updateSearchStore } from "redux/searchSlice";
 import Styles from "styles/Header.module.css";
 
-const Header = ({ search = false, refetcher }) => {
+const Header = ({ search = false }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const dispatch = useDispatch();
   const queryParams = new URLSearchParams(location.search);
   const query = queryParams.get("keyword");
   const [keyword, setKeyword] = useState("");
+
   const onChange = (event) => {
     const {
       target: { value },
@@ -19,11 +24,23 @@ const Header = ({ search = false, refetcher }) => {
     navigate(`/search?keyword=${keyword}`);
     setKeyword("");
   };
+  const { movies, error } = useSearchMovies(query);
+
   useEffect(() => {
-    if (query) {
-      refetcher(query);
-    }
+    dispatch(updateSearchStore({ isLoading: true }));
   }, [query]);
+
+  useEffect(() => {
+    if (!movies) return;
+    dispatch(
+      updateSearchStore({ movies: movies.data.movies, isLoading: false })
+    );
+  }, [movies]);
+
+  useEffect(() => {
+    if (error) console.log(error);
+  }, [error]);
+
   return (
     <header className={Styles.header}>
       <div className={Styles.logoContainer}>
@@ -35,6 +52,9 @@ const Header = ({ search = false, refetcher }) => {
             </li>
             <li style={{ opacity: location.pathname === "/search" && "1" }}>
               <Link to={"/search"}>Search</Link>
+            </li>
+            <li style={{ opacity: location.pathname === "/stream" && "1" }}>
+              <Link to={"/stream"}>Stream</Link>
             </li>
           </ul>
         </nav>

@@ -1,32 +1,58 @@
 import React, { useEffect } from "react";
-import useMoive from "api/useMovie";
 import Loader from "components/Loader";
 import Movie from "components/Movie";
 import Styles from "styles/Detail.module.css";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Actor from "components/Actor";
+import { useDispatch, useSelector } from "react-redux";
+import useFetchMovies from "libs/useFetchMovies";
+import { updateDetailStore } from "redux/detailSlice";
 
 const Detail = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
-  const { movieData, loading } = useMoive({
-    url: `movie_details.json?movie_id=${id}&with_cast=true`,
-    type: "detail",
-  });
 
-  const { movieData: relatedMovie, loading: relatedLoding } = useMoive({
-    url: `movie_suggestions.json?movie_id=${id}`,
-  });
+  const { movies, error } = useFetchMovies(
+    `https://yts.mx/api/v2/movie_details.json?movie_id=${id}&with_cast=true`
+  );
+
+  const { movies: relatedMovies, error: relatedError } = useFetchMovies(
+    `https://yts.mx/api/v2/movie_suggestions.json?movie_id=${id}`
+  );
+
+  const DetailStore = useSelector((state) => state.DetailStore);
+
+  useEffect(() => {
+    if (movies && relatedMovies) {
+      dispatch(
+        updateDetailStore({
+          movie: movies.data.movie,
+          relatedMovies: relatedMovies.data.movies,
+          isLoading: false,
+        })
+      );
+    }
+  }, [movies, relatedMovies, dispatch]);
+
+  useEffect(() => {
+    if (error) {
+      console.log(error);
+    }
+    if (relatedError) {
+      console.log(relatedError);
+    }
+  }, [error, relatedError]);
 
   return (
     <>
-      {loading ? (
+      {DetailStore.isLoading ? (
         <Loader />
       ) : (
         <div className={Styles.detail}>
           <div
             style={{
-              backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${movieData.background_image})`,
+              backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${DetailStore.movie.background_image})`,
             }}
             className={Styles.detailBackground}
           >
@@ -36,37 +62,41 @@ const Detail = () => {
             </div>
             <div className={Styles.detailContainer}>
               <img
-                src={movieData.large_cover_image}
+                src={DetailStore.movie.large_cover_image}
                 className={Styles.detailProfileImg}
+                alt="poster"
               />
               <div className={Styles.detailProfile}>
                 <div className={Styles.detailTitle}>
-                  <div className={Styles.detailYear}>{movieData.year}</div>
-                  <h1>{movieData.title}</h1>
+                  <div className={Styles.detailYear}>
+                    {DetailStore.movie.year}
+                  </div>
+                  <h1>{DetailStore.movie.title}</h1>
                 </div>
                 <div className={Styles.detailRating}>
-                  {movieData.rating} / 10
+                  {DetailStore.movie.rating} / 10
                 </div>
                 <ul className={Styles.detailGenre}>
-                  {movieData.genres.map((genre) => (
+                  {DetailStore.movie.genres.map((genre) => (
                     <li key={genre}>{genre}</li>
                   ))}
                 </ul>
                 <div className={Styles.detailRuntime}>
-                  {movieData.runtime !== 0
-                    ? `Runtime : ${movieData.runtime}m`
+                  {DetailStore.movie.runtime !== 0
+                    ? `Runtime : ${DetailStore.movie.runtime}m`
                     : null}
                 </div>
                 <div className={Styles.detailDescription}>
-                  {movieData.description_intro.length > 500
-                    ? movieData.description_intro.substring(0, 500) + "..."
-                    : movieData.description_intro}
+                  {DetailStore.movie.description_intro.length > 500
+                    ? DetailStore.movie.description_intro.substring(0, 500) +
+                      "..."
+                    : DetailStore.movie.description_intro}
                 </div>
-                {movieData.cast ? (
+                {DetailStore.movie.cast ? (
                   <>
                     <div className={Styles.detailActorTitle}>Actor</div>
                     <div className={Styles.detailActorList}>
-                      {movieData.cast.map((cast) => (
+                      {DetailStore.movie.cast.map((cast) => (
                         <Actor
                           key={cast.imdb_code}
                           img={cast.url_small_image}
@@ -79,34 +109,33 @@ const Detail = () => {
                 ) : null}
               </div>
               <div>
-                {relatedLoding ? null : (
-                  <div className={Styles.related}>
-                    <div className={Styles.relatedTitle}>Related Movie</div>
-                    <ul className={Styles.relatedList}>
-                      {relatedMovie.map((movie) => (
-                        <Movie
-                          key={movie.id}
-                          id={movie.id}
-                          image={movie.medium_cover_image}
-                          title={movie.title}
-                          rating={movie.rating}
-                          runtime={movie.runtime}
-                          year={movie.year}
-                          type="small"
-                        />
-                      ))}
-                    </ul>
-                  </div>
-                )}
+                <div className={Styles.related}>
+                  <div className={Styles.relatedTitle}>Related Movie</div>
+                  <ul className={Styles.relatedList}>
+                    {DetailStore.relatedMovies.map((movie) => (
+                      <Movie
+                        key={movie.id}
+                        id={movie.id}
+                        image={movie.medium_cover_image}
+                        title={movie.title}
+                        rating={movie.rating}
+                        runtime={movie.runtime}
+                        year={movie.year}
+                        type="small"
+                      />
+                    ))}
+                  </ul>
+                </div>
+
                 <div className={Styles.detailLink}>
                   <div className={Styles.detailLinkTitle}>Link</div>
                   <div className={Styles.detailLinkList}>
                     <Link
-                      to={`https://www.youtube.com/embed/${movieData.yt_trailer_code}?rel=0&wmode=transparent&border=0&autoplay=1&iv_load_policy=3`}
+                      to={`https://www.youtube.com/embed/${DetailStore.movie.yt_trailer_code}?rel=0&wmode=transparent&border=0&autoplay=1&iv_load_policy=3`}
                     >
                       YOUTUBE LINK
                     </Link>
-                    <Link to={movieData.url}>MOVIE LINK</Link>
+                    <Link to={DetailStore.movie.url}>MOVIE LINK</Link>
                   </div>
                 </div>
               </div>
