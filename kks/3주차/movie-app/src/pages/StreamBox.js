@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
+import { addChatStore } from "redux/chatSlice";
 import { io } from "socket.io-client";
 import Styles from "styles/StreamBox.module.css";
 
 const socket = io("http://localhost:3001");
 
 const StreamBox = () => {
+  const dispatch = useDispatch();
   const location = useLocation();
   const url = location.state.url;
   const query = new URL(url).searchParams.get("v");
@@ -26,9 +29,15 @@ const StreamBox = () => {
         content: inputValue,
         time: currentTime,
       });
+      dispatch(
+        addChatStore({ id, username, content: inputValue, time: currentTime })
+      );
       setInputValue("");
     }
   };
+
+  const chats = useSelector((state) => state.ChatStore);
+
   const handleMessage = (message) => {
     setMessages((pre) => [...pre, message]);
   };
@@ -53,7 +62,7 @@ const StreamBox = () => {
           <div className={Styles.streamChat}>
             <div className={Styles.streamChatTitle}>실시간 채팅</div>
             <ul className={Styles.streamChatContainer}>
-              {messages.map((message) => (
+              {chats.map((message) => (
                 <li key={message.id}>
                   {message.username} : {message.content} - {message.time}
                 </li>
