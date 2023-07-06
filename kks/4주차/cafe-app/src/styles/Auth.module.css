@@ -1,0 +1,16 @@
+.auth {
+  padding: 65px 30px;
+  color: #30a2ff;
+}
+
+.logo {
+  font-size: 42px;
+  display: flex;
+  flex-direction: column;
+}
+
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
+}

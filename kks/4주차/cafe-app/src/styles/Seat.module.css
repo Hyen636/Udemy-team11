@@ -1,0 +1,49 @@
+.seat {
+}
+
+.seatHeader {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  height: 160px;
+  padding: 25px 15px;
+  font-size: 24px;
+  border-radius: 0px 0px 10px 10px;
+  background-color: #d9d9d9;
+}
+
+.seatTitle {
+  justify-self: center;
+  font-size: 24px;
+}
+
+.seatContainer {
+  margin: 20px;
+  padding: 30px;
+  background-color: #f8f8f8;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  border-radius: 15px;
+  transform: translateY(-70px);
+}
+
+.seatContainerList {
+  justify-self: center;
+  width: 55px;
+  height: 45px;
+  border-radius: 10px;
+  background-color: #d9d9d9;
+}
+
+.seatContainerList:nth-child(n + 9):nth-child(-n + 12) {
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+.seatContainerList:nth-child(4n + 2) {
+  margin-right: 10px;
+}
+
+.seatContainerList:nth-child(4n + 3) {
+  margin-left: 10px;
+}

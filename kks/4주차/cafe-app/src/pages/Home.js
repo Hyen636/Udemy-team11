@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 import { Link } from "react-router-dom";
+import Styles from "../styles/Home.module.css";
+import Cafe from "../components/Cafe";
 
 const Home = ({ user }) => {
   const [cafes, setCafes] = useState([]);
@@ -20,14 +22,21 @@ const Home = ({ user }) => {
     getCafes();
   }, []);
   return (
-    <>
-      <h1>Home</h1>
-      {cafes.map((cafe) => (
-        <Link key={cafe.id} to={`/cafe/${cafe.id}`} state={cafe}>
-          {cafe.name}
-        </Link>
-      ))}
-    </>
+    <div className={Styles.home}>
+      <h1 className={Styles.title}>구독 리스트</h1>
+      <div className={Styles.cafeList}>
+        {cafes.map((cafe) => (
+          <Link key={cafe.id} to={`/cafe/${cafe.id}`} state={cafe}>
+            <Cafe
+              name={cafe.name}
+              url={cafe.imageUrl}
+              address={cafe.address}
+              types={cafe.types}
+            />
+          </Link>
+        ))}
+      </div>
+    </div>
   );
 };
 

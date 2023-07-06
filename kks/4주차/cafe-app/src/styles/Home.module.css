@@ -1,0 +1,14 @@
+.home {
+  padding: 30px;
+}
+
+.home .title {
+  font-size: 24px;
+}
+
+.cafeList {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

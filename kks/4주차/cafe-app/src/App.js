@@ -1,11 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Auth from "./pages/Auth";
+import { auth } from "./firebase";
+import { onAuthStateChanged } from "firebase/auth";
 import { useState } from "react";
+import Auth from "./pages/Auth";
 import Home from "./pages/Home";
 import Detail from "./pages/Detail";
 import Seat from "./pages/Seat";
-import { auth } from "./firebase";
-import { onAuthStateChanged } from "firebase/auth";
+import Styles from "./styles/App.module.css";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -23,15 +24,17 @@ function App() {
   }, []);
   return (
     <Router>
-      <Routes>
-        {isLoggedIn ? (
-          <Route path="/" element={<Home user={user} />} />
-        ) : (
-          <Route path="/" element={<Auth />} />
-        )}
-        <Route path="/cafe/:id" element={<Detail />} />
-        <Route path="/cafe/:id/seat" element={<Seat />} />
-      </Routes>
+      <div className={Styles.app}>
+        <Routes>
+          {isLoggedIn ? (
+            <Route path="/" element={<Home user={user} />} />
+          ) : (
+            <Route path="/" element={<Auth />} />
+          )}
+          <Route path="/cafe/:id" element={<Detail />} />
+          <Route path="/cafe/:id/seat" element={<Seat />} />
+        </Routes>
+      </div>
     </Router>
   );
 }
