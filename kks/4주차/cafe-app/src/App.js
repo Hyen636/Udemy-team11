@@ -9,9 +9,10 @@ import Seat from "./pages/Seat";
 import Styles from "./styles/App.module.css";
 
 function App() {
+  // 로그인 유무와 로그인시 유저의 정보를 상태 관리합니다.
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
-  // 로그인 유무와 로그인시 유저의 정보를 상태 관리합니다.
+  // firebase의 onAuthStateChanged를 사용하여 유저를 확인합니다.
   useState(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -26,6 +27,7 @@ function App() {
     <Router>
       <div className={Styles.app}>
         <Routes>
+          {/* 로드인 유무에 따라 다른 컴포넌트를 라우팅 합니다. */}
           {isLoggedIn ? (
             <Route path="/" element={<Home user={user} />} />
           ) : (
